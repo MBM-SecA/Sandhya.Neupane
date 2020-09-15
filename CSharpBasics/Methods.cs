@@ -59,7 +59,7 @@ public class MethodLearner
 
 public class MethodTester
 {
-    static void Main()
+    static void Main5()
     {
         MethodLearner methodLearner = new MethodLearner();
         
