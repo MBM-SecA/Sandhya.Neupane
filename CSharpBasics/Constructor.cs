@@ -5,7 +5,10 @@ namespace AllAboutClasses
         public string Name { get; set; }
         public int Population { get; set; }
         public readonly double AREA = 3456.56;
+        public static readonly bool IsOnEarth;
 
+
+        // Instance Constructors
         // Default constructor
         public Country()
         {
@@ -23,6 +26,18 @@ namespace AllAboutClasses
             Name = name;
             Population = population;
             AREA = area;
+        }
+
+        // Static Constructor (used only one time i.e. singleton pattern)
+        static Country()
+        {
+            IsOnEarth = true;
+        }
+
+        // Finalizer or Destructor
+        ~Country()
+        {
+            Console.WriteLine("I am dying.");
         }
     }
 
