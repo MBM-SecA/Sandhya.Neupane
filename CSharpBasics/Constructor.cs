@@ -35,10 +35,10 @@ namespace AllAboutClasses
         }
 
         // Finalizer or Destructor
-        ~Country()
-        {
-            Console.WriteLine("I am dying.");
-        }
+        // ~Country()
+        // {
+        //     Console.WriteLine("I am dying.");
+        // }
     }
 
     public class Demo
