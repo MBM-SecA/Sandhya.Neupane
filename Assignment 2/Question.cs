@@ -17,4 +17,9 @@ public class FileAndDirectories
             File.WriteAllText($"../ABC/{i + 1}Folder/HelloWorld.cs", fileHelloWorld);
         }
     }
+    static void Main (string[] args)
+    {
+        FileAndDirectories fileAndDirectories = new FileAndDirectories();
+        fileAndDirectories.AboutDirectories();
+    }
 }
