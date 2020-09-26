@@ -54,7 +54,7 @@ namespace LINQ
             }
 
             var notinvadedCountries = from invade in countries
-                                      where invade.Name = "Asia" && invade.IndependenceDay = "default"
+                                      where invade.Continent == "Asia" && invade.IndependenceDay == default
                                       select invade.Name;
             foreach (var invade in notinvadedCountries)
             {
