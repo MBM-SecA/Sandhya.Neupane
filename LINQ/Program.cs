@@ -9,7 +9,7 @@ namespace LINQ
         {
             //LINQ - LAnguage Integrated Query
 
-            int[] numbers = { 23, 34, 45, 67, 87, 32, 22 };
+            int[] numbers = { 23, 34, 45, 67, 87, 32, 22, 44 };
 
             // Fetch numbers which are greater than 50 and less than 70.
 
@@ -30,56 +30,38 @@ namespace LINQ
             var result4 = from y in names
                           where y.Length > 3 && y.ToLower().StartsWith("r")
                           select y;
-            foreach (var y in result4)
-            {
-                Console.WriteLine(y);
-            }
-
-            var countries = Country.GetCountries();
-
-            var asianCountries = from country in countries
-                                 where country.Continent == "Asia"
-                                 select country.Name;
-            // foreach (var country in asianCountries)
+            // foreach (var name in result4)
             // {
-            //     Console.WriteLine(country);
+            //     Console.WriteLine(name);
             // }
 
-            var europeanCountries = from population in countries
-                                    where population.Population < 100000 && population.Continent == "Europe"
-                                    select population.Name;
-            foreach (var population in europeanCountries)
+            // Projecctions
+            var result5 = numbers.Select(x => x * x);
+            foreach (var square in result5)
             {
-                Console.WriteLine(population);
+                Console.WriteLine(square);
             }
 
-            var notinvadedCountries = from invade in countries
-                                      where invade.Continent == "Asia" && invade.IndependenceDay == default
-                                      select invade.Name;
-            foreach (var invade in notinvadedCountries)
+            // Ordering
+            var result6 = from num in result5
+                          orderby num
+                          select num;
+
+            // Partitoning 
+            var result7 = numbers.Skip(5).Take(5);
+
+            // Quantifier
+            var result8 = numbers.Any(x => x % 2 == 0);//Any returns bool vaule)
+            var result9 = numbers.All(x => x % 2 == 0);
+            var result10 = numbers.Contains(34);
+
+            var result11 = Enumerable.Range(1, 1000);
+            var result12 = Enumerable.Repeat("Hello World, 10");
+
+            foreach (var num in result11)
             {
-                Console.WriteLine(invade);
+                Console.WriteLine(num);
             }
-
-
-            // List<Country> countries = new List<Country>();
-
-            // Country c1 = new Country();
-            // c1.Name = "Nepal";
-            // c1.Continent = "Asia";
-            // c1.Area = 53637.432;
-            // c1.Population= 4677648328;
-
-
-            // Country c1 = new Country()
-            // {
-            //     Name = "Nepal",
-            //     Continent = "Asia",
-            //     Area = 53637.432,
-            //     Population= 4677648328
-            // };
-
-            // countries.Add(c1);
 
         }
     }
