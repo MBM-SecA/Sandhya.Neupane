@@ -1,4 +1,5 @@
 using System.Linq;
+using System;
 
 public class ComplexType
 {
@@ -30,7 +31,29 @@ public class ComplexType
         {
             Console.WriteLine(invade);
         }
-    }}
+
+        // HW - IS there any african country in your country collection.
+        var africanCountries = countries.Any(country => country.Continent == "Africa");
+        if (africanCountries)
+        {
+            Console.WriteLine("Yes, there are.");
+        }
+        else
+        {
+            Console.WriteLine("No, there are not.");
+        }
+
+        // HW - Print first two largest asian countries names.
+        var largest = countries.OrderByDescending (asianCountries => asianCountries.Area);
+
+        foreach ( var country in largest.Take(2))
+        {
+            Console.WriteLine(country.Name);
+        }
+
+
+    }
+}
 
 
 // HW - IS there any african country in your country collection.
