@@ -5,9 +5,7 @@
     ViewData["TitlePhrase"] = fn;
 }
 
-<h1 class = "d-inline">Employee Detail</h1>
-<a href = "/employee/index/" class="btn btn-outline-primary" href="#" role="button">Go Back</a>
-
+<h2>Are you sure you want to delete?</h2>
 <ul class="List-group">
   <li class="List-group-item">First Name : @fn</li>
   <li class="List-group-item">Last Name : @Model.SurName</li>
@@ -15,3 +13,8 @@
   <li class="List-group-item">Gender: @Model.Gender</li>
   <li class="List-group-item">Salary: @Model.Salary</li>
 </ul>
+
+<form asp-controller="Employee" asp-action="Delete" method="POST">
+  <input type="hidden" asp-for="Id" />
+  <button type="submit" class="btn btn-danger">Ok Delete</button>
+</form>
