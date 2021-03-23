@@ -57,7 +57,6 @@ public class EmployeeController: Controller
     {
         db.People.Add(person);
         db.SaveChanges();
-
         return RedirectToAction(nameof(Index));
     }
 

@@ -3,13 +3,13 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using EmployeeManagement.Data;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using StudentsApi.Data;
 
-namespace EmployeeManagement.Migrations
+namespace StudentsApi.Migrations
 {
-    [DbContext(typeof(EMSContext))]
-    [Migration("20201208183604_InitialCreate")]
+    [DbContext(typeof(StudentsContext))]
+    [Migration("20210310030754_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace EmployeeManagement.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Person", b =>
+            modelBuilder.Entity("StudentsApi.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -27,23 +27,15 @@ namespace EmployeeManagement.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
+                    b.Property<DateTime>("Dob")
                         .HasColumnType("TEXT");
 
-                    b.Property<char?>("Gender")
-                        .HasColumnType("TEXT");
-
-                    b.Property<double?>("Salary")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("People");
+                    b.ToTable("Student");
                 });
 #pragma warning restore 612, 618
         }
